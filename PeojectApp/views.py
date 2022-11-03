@@ -4,8 +4,7 @@ from django.contrib import messages
 from PeojectApp.models import Desigination, VehicleRegistration, registration
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-
-# Create your views here.
+from django.db.models import Q
 
 def homepage(request):
     return render(request,'home.html')
@@ -63,6 +62,7 @@ def super_admin_welcome(request):
 
 
 def user_login(request):
+    
     if request.method== 'POST':
         username=request.POST['username']
         password=request.POST['password']
@@ -71,14 +71,14 @@ def user_login(request):
             auth.login(request,user)
             request.session['usid']=user.id
             return redirect('super_admin') 
-        
-        elif registration.objects.filter(username=username,password=password,desigination_id=1):
+        des=Desigination.objects.get(Q(desigination="USER") | Q(desigination="user") | Q(desigination="User"))
+        if registration.objects.filter(username=username,password=password,desigination_id=des.id):
             user1=registration.objects.get(username=username,password=password)
             request.session['usid']=user1.id
             
             return redirect('user_show_table')
-
-        elif registration.objects.filter(username=username,password=password,desigination_id=2):
+        desig=Desigination.objects.get(Q(desigination="ADMIN") | Q(desigination="admin") | Q(desigination="Admin"))
+        if registration.objects.filter(username=username,password=password,desigination_id=desig.id):
             user2=registration.objects.get(username=username,password=password)
             # auth.login(request,am)
             request.session['usid']=user2.id
