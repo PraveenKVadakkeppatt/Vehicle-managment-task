@@ -86,6 +86,7 @@ def user_login(request):
             return redirect('admin_showtable')
         else:
             messages.error(request,'username does not exists')
+            return redirect('loginpage')
     logout(request)    
     return render(request,'home.html')
 
