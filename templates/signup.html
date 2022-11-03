@@ -172,7 +172,7 @@ h1 {
                        <div class="form-outline flex-fill mb-0">
                         <label class="form-label "  for="form3Example1c">First Name</label>
 
-                         <input type="text" id="form3Example1c"  name="first_name" Required class="form-control" />
+                         <input type="text" id="form3Example1c"  name="first_name" Required class="form-control" required />
                        </div>
                      </div>
                    
@@ -181,7 +181,7 @@ h1 {
                        <div class="form-outline flex-fill mb-0">
                         <label class="form-label "  for="form3Example1c">Last Name</label>
 
-                         <input type="text" id="form3Example1c" name="last_name" Required class="form-control" />
+                         <input type="text" id="form3Example1c" name="last_name" Required class="form-control" required/>
                        </div>
                      </div>
                    
@@ -190,7 +190,7 @@ h1 {
                        <div class="form-outline flex-fill mb-0">
                         <label class="form-label " for="form3Example3c">Your Email</label>
 
-                         <input type="email"  id="form3Example3c" name="email" class="form-control " />
+                         <input type="email"  id="form3Example3c" name="email" class="form-control " required/>
                        </div>
                      </div>
                    
@@ -199,7 +199,7 @@ h1 {
                        <div class="form-outline flex-fill mb-0">
                         <label class="form-label " for="form3Example3c">User name</label>
 
-                         <input type="text"  id="form3Example3c" name="username" class="form-control " />
+                         <input type="text"  id="form3Example3c" name="username" class="form-control " required/>
                        </div>
                      </div>
                    
@@ -208,7 +208,7 @@ h1 {
                        <div class="form-outline flex-fill mb-0">
                         <label class="form-label " for="form3Example4c">Password</label>
 
-                         <input type="password" id="form3Example4c" name="password" class="form-control" />
+                         <input type="password" id="form3Example4c" name="password" class="form-control" required/>
                        </div>
                      </div>
                    
@@ -217,7 +217,7 @@ h1 {
                        <div class="form-outline flex-fill mb-0">
                         <label class="form-label " for="form3Example4cd">Confirm password</label>
 
-                         <input type="password" id="form3Example4cd" name="cpassword" class="form-control" />
+                         <input type="password" id="form3Example4cd" name="cpassword" class="form-control" required/>
                        </div>
                      </div>
                      <div class="d-flex flex-row align-items-center mb-4">
@@ -225,7 +225,8 @@ h1 {
                        <div class="form-outline flex-fill mb-0">
                         <label class="form-label " for="form3Example4cd">Desigination</label>
 
-                         <select  id="form3Example4cd" name="desiginations"  class="form-control">
+                         <select  id="form3Example4cd" name="desiginations"  class="form-control" required>
+                          <option>----Select Designation----</option>
                            {% for p in std %}
                            <option value="{{p.id}}">{{p.desigination}}</option>
                            {% endfor %}

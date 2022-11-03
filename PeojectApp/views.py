@@ -71,13 +71,14 @@ def user_login(request):
             auth.login(request,user)
             request.session['usid']=user.id
             return redirect('super_admin') 
-        elif registration.objects.filter(username=username,password=password,desigination_id=3):
+        
+        elif registration.objects.filter(username=username,password=password,desigination_id=1):
             user1=registration.objects.get(username=username,password=password)
             request.session['usid']=user1.id
             
             return redirect('user_show_table')
 
-        elif registration.objects.filter(username=username,password=password,desigination_id=1):
+        elif registration.objects.filter(username=username,password=password,desigination_id=2):
             user2=registration.objects.get(username=username,password=password)
             # auth.login(request,am)
             request.session['usid']=user2.id
